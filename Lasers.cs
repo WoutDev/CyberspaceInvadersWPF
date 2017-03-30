@@ -6,33 +6,21 @@ using System.Threading.Tasks;
 
 namespace CyberspaceInvader
 {
-    public class Lasers
+    public class Lasers : List<Laser>
     {
-        private List<Laser> laserList = new List<Laser>();
-
-        public void Add(Laser laser)
-        {
-            laserList.Add(laser);
-        }
-
-        public void Remove(Laser laser)
-        {
-            laserList.Remove(laser);
-        }
-
         public void Move()
         {
-            for (int i = 0; i < laserList.Count; i++)
+            for (int i = 0; i < Count; i++)
             {
-                laserList[i].Move();
+                this[i].Move();
             }
         }
 
         public void CheckHit(Alien alien)
         {
-            for (int i = 0; i < laserList.Count; i++)
+            for (int i = 0; i < this.Count; i++)
             {
-                laserList[i].CheckHit(alien);
+                this[i].CheckHit(alien);
             }
         }
     }
