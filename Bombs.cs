@@ -6,33 +6,21 @@ using System.Threading.Tasks;
 
 namespace CyberspaceInvader
 {
-    public class Bombs
+    public class Bombs : List<Bomb>
     {
-        private List<Bomb> bombList = new List<Bomb>();
-
-        public void Add(Bomb bomb)
-        {
-            bombList.Add(bomb);
-        }
-
-        public void Remove(Bomb bomb)
-        {
-            bombList.Remove(bomb);
-        }
-
         public void Move()
         {
-            for (int i = 0; i < bombList.Count; i++)
+            for (int i = 0; i < this.Count; i++)
             {
-                bombList[i].Move();
+                this[i].Move();
             }
         }
 
         public void CheckHit(User user)
         {
-            for (int i = 0; i < bombList.Count; i++)
+            for (int i = 0; i < this.Count; i++)
             {
-                bombList[i].CheckHit(user);
+                this[i].CheckHit(user);
             }
         }
     }
